@@ -28,6 +28,7 @@ public class Persona implements Serializable{
     private String nombre;
     private String apellido1;
     private String apellido2;
+    private String telefono;
     private String email;
     //Definir el foreing key existente en la tabla
     @ManyToOne//se definine la relacion
@@ -80,6 +81,14 @@ public class Persona implements Serializable{
 
     public void setPais(Pais pais) {
         this.pais = pais;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
     }
     
     

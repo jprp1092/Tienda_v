@@ -28,7 +28,7 @@ public class PersonaController {
         "Tabla Persona" */
         model.addAttribute("personas",listaPersona);/*donde en el html encuentre "personas" lo va a sustituir por 
         listaPersona (line 26) */
-        return "personas";//devolvera un objeto de tipo string personas
+        return "persona";//devolvera un objeto de tipo string personas
     }
     
 }
