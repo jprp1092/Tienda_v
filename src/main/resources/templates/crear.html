@@ -47,9 +47,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                         <label class="form-label" for="paises">Pais</label>
                         <div class="col-sm-10">
                             <select th:field="*{pais}" class="form-control form-control-sm col-md-6" id="pais" aria-describedby="emailHelp">
-                                <option th:each="x:${paises}"
+                                <!-- Como se llama la tabla en la base de datos -->
+                                <option th:each="x:${paises}" 
                                         th:value="${x.id}" 
-                                        th.text="${x.pais}"/> <!-- value va a hacer nuestro valor y key que va a hacer el texto   --> <!-- por cada x que este en paises quiero que extraiga el id y el nombre, paises va a hacer la lista de paises creadas en controller  -->    
+                                        th:text="${x.pais}"/> <!-- value va a hacer nuestro valor y key que va a hacer el texto   --> <!-- por cada x que este en paises quiero que extraiga el id y el nombre, paises va a hacer la lista de paises creadas en controller  -->    
                             </select>        
                         </div>
                     </div>
