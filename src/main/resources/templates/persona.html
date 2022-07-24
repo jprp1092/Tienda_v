@@ -3,12 +3,14 @@
 Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
 Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
 -->
-<html xmlns:th="http://www.thymeleaft.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://thymeleaft/extras/spring-security">
     <head th:replace="plantilla/template::head"></head>
     <body>
         <header th:replace="plantilla/template::header"></header>
         <h1 th:text="${titulo}"></h1> <!-- El titulo lo agarra de controller linea 37 -->
         <h1 th:text="#{cliente.nombre}"></h1>
+        <span sec:authentication="name"></span>
         <table class="table table-bordered">
             <thead class="thead-dark">
                 <tr>

@@ -17,4 +17,5 @@ public interface IPersonaService {
     public void savePersona(Persona persona);/*son void porque no devuelve informacion-guardamos una
     nueva fila en nuestra tabla*/
     public void delete(long id);//elimina una fila por id
+    public Persona findByNombre (String nombre);/*Busca por nombre, aca deberias ser un usuario pero lo hacemos por nombre en este ejemplo*/
  }

@@ -20,28 +20,33 @@ public class PersonaService implements IPersonaService{
     @Autowired
     private PersonaRepository personaRepository;
 
-    @Override
+    @Override //indica que son metodos de la interfaz y los estamos sobreescribiendo o implementando
     public List<Persona> getAllPersona() {
         return (List<Persona>)personaRepository.findAll();
         //retornamos una lista persona del repositorio persona
     }
 
-    @Override
+    @Override //indica que son metodos de la interfaz y los estamos sobreescribiendo o implementando
     public Persona getPersonaById(long id) {
         return personaRepository.findById(id).orElse(null); 
         //retorna una persona por id si no retorna un null
     }
 
-    @Override
+    @Override //indica que son metodos de la interfaz y los estamos sobreescribiendo o implementando
     public void savePersona(Persona persona) {
         personaRepository.save(persona);
         //aca no retornamos solo guardamos la persona
     }
 
-    @Override
+    @Override //indica que son metodos de la interfaz y los estamos sobreescribiendo o implementando
     public void delete(long id) {
         personaRepository.deleteById(id);
         //aca no retornamos solo eliminamos por id
+    }
+
+    @Override //indica que son metodos de la interfaz y los estamos sobreescribiendo o implementando
+    public Persona findByNombre(String nombre) {
+        return personaRepository.findByNombre(nombre);
     }
     
 }
