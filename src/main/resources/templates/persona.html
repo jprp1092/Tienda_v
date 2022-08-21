@@ -7,7 +7,28 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
       xmlns:sec="http://thymeleaft/extras/spring-security">
     <head th:replace="plantilla/template::head"></head>
     <body>
-        <header th:replace="plantilla/template::header"></header>
+             
+        <header th:fragment="header">
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#" th:href="@{~/index}"></a>
+                </li>
+                <li sec:authorize="isAuthenticated()" class="nav-item">
+                    <a class="nav-link" href="#" th:href="@{~/profile/index}">Profile</a>
+                </li>>
+                <li sec:authorize="hasRole('ROLE_USER')" class="nav-item">
+                    <a class="nav-link" href="#" th:href="@{~/admin/index}">User</a>
+                </li>
+               <li sec:authorize="hasAnyRole('ROLE_ADMIN','ROLE_MANAGER')" class="nav-item">
+                    <a class="nav-link" href="#" th:href="@{~/management/index}">Admin</a>
+                </li>
+                <li sec:authorize="hasAnyRole('ROLE_ADMIN','ROLE_MANAGER')" class="nav-item">
+                    <a class="nav-link" href="#" th:href="@{/ReporteClientes}">Reporte</a>
+                </li>
+            </ul>
+        </header>
+        
+        
         <h1 th:text="${titulo}"></h1> <!-- El titulo lo agarra de controller linea 37 -->
         <h1 th:text="#{cliente.nombre}"></h1>
         <span sec:authentication="name"></span>
@@ -39,10 +60,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
             </th:block>     
         </tbody>
     </table>
-        
-        <footer th:replace="plantilla/template::footer">
-            
-        </footer>
+
+    <footer th:replace="plantilla/template::footer">
+
+    </footer>
 </body>
 
 </html>
